@@ -27,7 +27,8 @@ class MainMenu extends StatelessWidget {
         children: <Widget>[
           ElevatedButton(
             key: const ValueKey('flutterSamples'),
-            onPressed: null,
+            onPressed: () =>
+                Navigator.pushNamed(context, Routes.flutterSamplesList),
             child: const Text(LocaleKeys.flutterSamples).tr(),
           ),
           ElevatedButton(
