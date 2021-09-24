@@ -2,7 +2,6 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app_clones/src/localization/locale_keys.g.dart';
 import 'package:flutter_app_clones/src/navigation/routes.dart';
-import 'package:flutter_app_clones/src/ui/app_clones/twitter_clone_screen.dart';
 
 class MainMenu extends StatelessWidget {
   const MainMenu({Key? key}) : super(key: key);
@@ -20,15 +19,6 @@ class MainMenu extends StatelessWidget {
   }
 
   _buildContent(BuildContext context) {
-    onButtonTap(Widget page) {
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (BuildContext context) => page),
-
-
-      );
-    }
-
     return Padding(
       padding: const EdgeInsets.all(16),
       child: Column(
@@ -37,17 +27,18 @@ class MainMenu extends StatelessWidget {
         children: <Widget>[
           ElevatedButton(
             key: const ValueKey('flutterSamples'),
-            onPressed: () {},
+            onPressed: null,
             child: const Text(LocaleKeys.flutterSamples).tr(),
           ),
           ElevatedButton(
             key: const ValueKey('twitterClone'),
-            onPressed: () => onButtonTap(const TwitterProfilePage()),
+            onPressed: () => Navigator.pushNamed(context, Routes.twitterClone),
             child: const Text('Twitter Clone'),
           ),
           ElevatedButton(
-            key: const ValueKey('coffeeShop'),
-            onPressed: () {},
+            key: const ValueKey('coffeeShopClone'),
+            onPressed: () =>
+                Navigator.pushNamed(context, Routes.coffeeShopClone),
             child: const Text(LocaleKeys.coffeeShop).tr(),
           ),
         ],

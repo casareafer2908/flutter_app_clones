@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_app_clones/src/navigation/routes.dart';
 
 import 'package:flutter_app_clones/src/ui/main_menu_screen.dart';
 
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MainMenu(),
+      onGenerateRoute: (settings) => Routes.routes(settings),
     );
   }
 }
