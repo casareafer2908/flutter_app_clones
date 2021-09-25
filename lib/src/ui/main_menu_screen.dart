@@ -42,6 +42,12 @@ class MainMenu extends StatelessWidget {
                 Navigator.pushNamed(context, Routes.coffeeShopClone),
             child: const Text(LocaleKeys.coffeeShop).tr(),
           ),
+          ElevatedButton(
+            key: const ValueKey('foodPandaClone'),
+            onPressed: () =>
+                Navigator.pushNamed(context, Routes.foodPandaClone),
+            child: const Text('Food Panda'),
+          ),
         ],
       ),
     );

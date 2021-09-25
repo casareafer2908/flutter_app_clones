@@ -29,6 +29,11 @@ class FlutterSamplesScreen extends StatelessWidget {
             key: const ValueKey('tabsControllerScreen'),
             child: const Text('Tabs'),
             onPressed: () => Navigator.pushNamed(context, Routes.tabController),
+          ),
+          ElevatedButton(
+            key: const ValueKey('drawerExampleScreen'),
+            child: const Text('Drawer Example'),
+            onPressed: () => Navigator.pushNamed(context, Routes.drawerExample),
           )
         ],
       ),

@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
-class TwitterProfilePage extends StatefulWidget {
-  const TwitterProfilePage({Key? key}) : super(key: key);
+class TwitterProfileScreen extends StatefulWidget {
+  const TwitterProfileScreen({Key? key}) : super(key: key);
 
-  static Widget create(BuildContext context) => const TwitterProfilePage();
+  static Widget create(BuildContext context) => const TwitterProfileScreen();
 
   @override
-  _TwitterProfilePageState createState() => _TwitterProfilePageState();
+  _TwitterProfileScreenState createState() => _TwitterProfileScreenState();
 }
 
-class _TwitterProfilePageState extends State<TwitterProfilePage> {
+class _TwitterProfileScreenState extends State<TwitterProfileScreen> {
   static double avatarMaximumRadius = 40.0;
   static double avatarMinimumRadius = 15.0;
   double avatarRadius = avatarMaximumRadius;
