@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
@@ -64,47 +65,52 @@ class _FoodPandaScreenState extends State<FoodPandaScreen> {
   Widget _buildContents(BuildContext context) {
     return Column(
       children: <Widget>[
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Expanded(
-              child: Container(
-                height: 150,
-                child: Card(
-                  color: Color.fromRGBO(215, 15, 100, 1),
-                  child: InkWell(
-                    onTap: () {},
-                    child: Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: <Widget>[
-                          Padding(
-                            padding: EdgeInsets.all(14),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              children: <Widget>[
-                                Text(
-                                  "OrderFood",
-                                ),
-                                Text(
-                                  'Order food you love',
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                  ),
-                                ),
-                              ],
+        Card(
+          color: Color.fromRGBO(215, 15, 100, .9),
+          child: InkWell(
+            onTap: () {},
+            child: Padding(
+              padding: EdgeInsets.all(14),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Expanded(
+                    child: SizedBox(
+                      height: 120,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: const <Widget>[
+                          Text(
+                            "Food delivery",
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                              letterSpacing: .5,
+                              color: Colors.white,
                             ),
                           ),
-                        ]),
+                          SizedBox(height:10),
+                          Text(
+                            'Order food you love',
+                            style: TextStyle(
+                              letterSpacing: .5,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
                   ),
-                ),
+                  Expanded(
+                    child: Container(
+                        height: 120,
+                        child: Image.asset('assets/images/characters/boo.png')),
+                  ),
+                ],
               ),
             ),
-            Expanded(
-              child: Container(
-                  height: 150,
-                  child: Image.asset('assets/images/characters/boo.png')),
-            ),
-          ],
+          ),
         ),
         Expanded(child: Container(color: Colors.red)),
         const Expanded(child: SizedBox(height: 10)),
