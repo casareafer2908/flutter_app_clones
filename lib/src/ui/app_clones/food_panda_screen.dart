@@ -13,21 +13,21 @@ class FoodPandaScreen extends StatefulWidget {
 class _FoodPandaScreenState extends State<FoodPandaScreen> {
   //TODO: take this map out of here
   Map<int, Color> color = {
-    50: Color.fromRGBO(255, 0, 127, .1),
-    100: Color.fromRGBO(255, 0, 127, .2),
-    200: Color.fromRGBO(255, 0, 127, .3),
-    300: Color.fromRGBO(255, 0, 127, .4),
-    400: Color.fromRGBO(255, 0, 127, .5),
-    500: Color.fromRGBO(255, 0, 127, .6),
-    600: Color.fromRGBO(255, 0, 127, .7),
-    700: Color.fromRGBO(255, 0, 127, .8),
-    800: Color.fromRGBO(255, 0, 127, .9),
-    900: Color.fromRGBO(255, 0, 127, 1),
+    50: Color.fromRGBO(215, 15, 100, .1),
+    100: Color.fromRGBO(215, 15, 100, .2),
+    200: Color.fromRGBO(215, 15, 100, .3),
+    300: Color.fromRGBO(215, 15, 100, .4),
+    400: Color.fromRGBO(215, 15, 100, .5),
+    500: Color.fromRGBO(215, 15, 100, .6),
+    600: Color.fromRGBO(215, 15, 100, .7),
+    700: Color.fromRGBO(215, 15, 100, .8),
+    800: Color.fromRGBO(215, 15, 100, .9),
+    900: Color.fromRGBO(215, 15, 100, 1),
   };
 
   @override
   Widget build(BuildContext context) {
-    MaterialColor foodPandaColors = MaterialColor(0xffff007f, color);
+    MaterialColor foodPandaColors = MaterialColor(0xffd70f64, color);
     return Theme(
       data: ThemeData(
         primarySwatch: foodPandaColors,
@@ -43,7 +43,7 @@ class _FoodPandaScreenState extends State<FoodPandaScreen> {
             )),
             title: const Text(
               'Address Here',
-              style: TextStyle(color: Color.fromRGBO(255, 0, 127, 1)),
+              style: TextStyle(color: Color.fromRGBO(215, 15, 100, 1)),
             ),
             actions: <Widget>[
               IconButton(
@@ -62,24 +62,71 @@ class _FoodPandaScreenState extends State<FoodPandaScreen> {
   }
 
   Widget _buildContents(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 12),
-      child: StaggeredGridView.count(
-        crossAxisCount: 4,
-        staggeredTiles: _staggeredTiles,
-        mainAxisSpacing: 4,
-        crossAxisSpacing: 4,
-        padding: const EdgeInsets.all(4),
-        children: _tiles,
-      ),
+    return Column(
+      children: <Widget>[
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Expanded(
+              child: Container(
+                height: 150,
+                child: Card(
+                  color: Color.fromRGBO(215, 15, 100, 1),
+                  child: InkWell(
+                    onTap: () {},
+                    child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: <Widget>[
+                          Padding(
+                            padding: EdgeInsets.all(14),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: <Widget>[
+                                Text(
+                                  "OrderFood",
+                                ),
+                                Text(
+                                  'Order food you love',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ]),
+                  ),
+                ),
+              ),
+            ),
+            Expanded(
+              child: Container(
+                  height: 150,
+                  child: Image.asset('assets/images/characters/boo.png')),
+            ),
+          ],
+        ),
+        Expanded(child: Container(color: Colors.red)),
+        const Expanded(child: SizedBox(height: 10)),
+        Expanded(
+          child: StaggeredGridView.count(
+            crossAxisCount: 4,
+            staggeredTiles: _staggeredTiles,
+            mainAxisSpacing: 4,
+            crossAxisSpacing: 4,
+            padding: const EdgeInsets.all(4),
+            children: _tiles,
+          ),
+        ),
+      ],
     );
   }
 }
 
 const List<StaggeredTile> _staggeredTiles = <StaggeredTile>[
   //width -- height
-  StaggeredTile.count(4, .5),
-  StaggeredTile.count(4, 1),
+  StaggeredTile.count(4, .65),
+  StaggeredTile.count(4, 1.5),
   StaggeredTile.count(2, 2.5),
   StaggeredTile.count(2, 1.7),
   StaggeredTile.count(2, .8),
@@ -87,7 +134,7 @@ const List<StaggeredTile> _staggeredTiles = <StaggeredTile>[
   //here wtf
   StaggeredTile.count(4, 1.7),
 
-  StaggeredTile.count(4, 1),
+  StaggeredTile.count(4, .8),
 ];
 
 const List<Widget> _tiles = <Widget>[
@@ -100,7 +147,6 @@ const List<Widget> _tiles = <Widget>[
   _Example01Tile(Colors.red, Icons.bluetooth),
   _Example01Tile(Colors.pink, Icons.battery_alert),
 ];
-
 
 class _Example01Tile extends StatelessWidget {
   const _Example01Tile(this.backgroundColor, this.iconData);
