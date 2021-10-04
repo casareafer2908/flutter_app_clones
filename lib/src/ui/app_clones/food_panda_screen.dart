@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app_clones/src/ui/app_clones/app_clones_common_widgets/food_panda_cards.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
+import 'app_clones_common_widgets/food_panda_card_texts.dart';
+
 class FoodPandaScreen extends StatefulWidget {
   const FoodPandaScreen({Key? key}) : super(key: key);
 
@@ -68,9 +70,13 @@ class _FoodPandaScreenState extends State<FoodPandaScreen> {
       padding: const EdgeInsets.all(14),
       child: Column(
         children: <Widget>[
-          const CustomCard(),
+          CustomCard(
+            cardText: const CardTextBoxes(),
+          ),
           cardHorizontalSpaces(),
-          const CustomCard(),
+          CustomCard(
+            cardText: const CardTextBoxes(),
+          ),
           cardHorizontalSpaces(),
           Expanded(
             child: StaggeredGridView.count(
