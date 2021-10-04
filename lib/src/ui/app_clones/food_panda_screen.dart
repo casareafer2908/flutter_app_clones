@@ -68,12 +68,10 @@ class _FoodPandaScreenState extends State<FoodPandaScreen> {
       padding: const EdgeInsets.all(14),
       child: Column(
         children: <Widget>[
-          customCard(),
-          const SizedBox(
-            height: 14,
-          ),
-          customCard(),
-          const Expanded(child: SizedBox(height: 10)),
+          const CustomCard(),
+          cardHorizontalSpaces(),
+          const CustomCard(),
+          cardHorizontalSpaces(),
           Expanded(
             child: StaggeredGridView.count(
               crossAxisCount: 4,
@@ -86,6 +84,18 @@ class _FoodPandaScreenState extends State<FoodPandaScreen> {
           ),
         ],
       ),
+    );
+  }
+
+  SizedBox cardHorizontalSpaces() {
+    return const SizedBox(
+      height: 10,
+    );
+  }
+
+  SizedBox cardVerticalSpaces() {
+    return const SizedBox(
+      width: 10,
     );
   }
 }
