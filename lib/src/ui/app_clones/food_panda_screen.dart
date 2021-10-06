@@ -72,10 +72,16 @@ class _FoodPandaScreenState extends State<FoodPandaScreen> {
         children: <Widget>[
           CustomCard(
             cardText: const CardTextBoxes(),
+            cardWidth: 1,
+            cardHeight: 2,
+            onTap: () {},
           ),
           cardHorizontalSpaces(),
           CustomCard(
             cardText: const CardTextBoxes(),
+            cardWidth: 500,
+            cardHeight: 100,
+            onTap: () {},
           ),
           cardHorizontalSpaces(),
           Expanded(
