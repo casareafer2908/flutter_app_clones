@@ -43,8 +43,8 @@ class _FoodPandaScreenState extends State<FoodPandaScreen> {
             iconTheme: IconThemeData(color: foodPandaColors),
             shape: const RoundedRectangleBorder(
                 borderRadius: BorderRadius.vertical(
-                  bottom: Radius.circular(10),
-                )),
+              bottom: Radius.circular(10),
+            )),
             title: const Text(
               'Address Here',
               style: TextStyle(color: Color.fromRGBO(215, 15, 100, 1)),
@@ -66,36 +66,19 @@ class _FoodPandaScreenState extends State<FoodPandaScreen> {
   }
 
   Widget _buildContents(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(14),
-      child: Column(
-        children: <Widget>[
-          CustomCard(
-            cardText: const CardTextBoxes(),
-            cardWidth: 150,
-            cardHeight: 150,
-            onTap: () {},
+    return Column(
+      children: <Widget>[
+        Expanded(
+          child: StaggeredGridView.count(
+            crossAxisCount: 3,
+            staggeredTiles: _staggeredTiles,
+            mainAxisSpacing: 3,
+            crossAxisSpacing: 3,
+            padding: const EdgeInsets.all(14),
+            children: _tiles,
           ),
-          cardHorizontalSpaces(),
-          CustomCard(
-            cardText: const CardTextBoxes(),
-            cardWidth: 500,
-            cardHeight: 100,
-            onTap: () {},
-          ),
-          cardHorizontalSpaces(),
-          Expanded(
-            child: StaggeredGridView.count(
-              crossAxisCount: 4,
-              staggeredTiles: _staggeredTiles,
-              mainAxisSpacing: 4,
-              crossAxisSpacing: 4,
-              padding: const EdgeInsets.all(4),
-              children: _tiles,
-            ),
-          ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 
@@ -114,34 +97,21 @@ class _FoodPandaScreenState extends State<FoodPandaScreen> {
 
 const List<StaggeredTile> _staggeredTiles = <StaggeredTile>[
   //width -- height
-  StaggeredTile.count(4, .65),
-  StaggeredTile.count(4, 1.5),
-  StaggeredTile.count(2, 2.5),
-  StaggeredTile.count(2, 1.7),
-  StaggeredTile.count(2, .8),
-  StaggeredTile.count(4, 1),
-  //here wtf
-  StaggeredTile.count(4, 1.7),
-
-  StaggeredTile.count(4, .8),
+  StaggeredTile.count(2, 1),
+  StaggeredTile.count(1, 1),
+  StaggeredTile.count(2, 1),
+  StaggeredTile.count(2, 1),
 ];
 
 const List<Widget> _tiles = <Widget>[
-  _Example01Tile(Colors.green, Icons.widgets),
-  _Example01Tile(Colors.lightBlue, Icons.wifi),
-  _Example01Tile(Colors.amber, Icons.panorama_wide_angle),
-  _Example01Tile(Colors.brown, Icons.map),
-  _Example01Tile(Colors.deepOrange, Icons.send),
-  _Example01Tile(Colors.indigo, Icons.airline_seat_flat),
-  _Example01Tile(Colors.red, Icons.bluetooth),
-  _Example01Tile(Colors.pink, Icons.battery_alert),
+  _PandaScreenCards(),
+  _PandaScreenCards(),
+  _PandaScreenCards(),
+  _PandaScreenCards(),
 ];
 
-class _Example01Tile extends StatelessWidget {
-  const _Example01Tile(this.backgroundColor, this.iconData);
-
-  final Color backgroundColor;
-  final IconData iconData;
+class _PandaScreenCards extends StatelessWidget {
+  const _PandaScreenCards();
 
   @override
   Widget build(BuildContext context) {
@@ -151,6 +121,5 @@ class _Example01Tile extends StatelessWidget {
       cardHeight: 150,
       onTap: () {},
     );
-
   }
 }

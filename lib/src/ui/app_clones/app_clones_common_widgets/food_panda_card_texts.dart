@@ -12,7 +12,7 @@ class CardTextBoxes extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: const <Widget>[
           Text(
-            "Food delivery",
+            "Food",
             style: TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.bold,
@@ -22,7 +22,7 @@ class CardTextBoxes extends StatelessWidget {
           ),
           SizedBox(height: 10),
           Text(
-            'Order food you love',
+            "Order",
             style: TextStyle(
               letterSpacing: .5,
               color: Colors.white,
