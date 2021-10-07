@@ -71,6 +71,7 @@ class _FoodPandaScreenState extends State<FoodPandaScreen> {
         Expanded(
           child: StaggeredGridView.count(
             crossAxisCount: 3,
+            // her you set how many colums will be in the screen
             staggeredTiles: _staggeredTiles,
             mainAxisSpacing: 3,
             crossAxisSpacing: 3,
