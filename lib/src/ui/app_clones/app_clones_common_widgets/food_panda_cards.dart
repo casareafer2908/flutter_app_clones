@@ -19,14 +19,14 @@ class CustomCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      color: backgroundColor,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10.0),
-      ),
-      child: SizedBox(
-        height: cardHeight,
-        width: cardWidth,
+    return SizedBox(
+      height: cardHeight,
+      width: cardWidth,
+      child: Card(
+        color: backgroundColor,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10.0),
+        ),
         child: InkWell(
           onTap: onTap,
           child: Padding(
@@ -34,21 +34,9 @@ class CustomCard extends StatelessWidget {
             padding: const EdgeInsets.all(14),
             child: Stack(
               children: <Widget>[
-                Flex(
-                  direction: Axis.horizontal,
-                  children: [
-                    Expanded(
-                      child: Image.asset('assets/images/characters/boo.png'),
-                    )
-                  ],
-                ),
-                Flex(
-                  direction: Axis.horizontal,
-                  children: [
-                    Expanded(
-                      child: cardText,
-                    )
-                  ],
+                backgroundImage,
+                Container(
+                  child: cardText,
                 ),
               ],
             ),

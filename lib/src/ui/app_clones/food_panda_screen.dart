@@ -43,8 +43,8 @@ class _FoodPandaScreenState extends State<FoodPandaScreen> {
             iconTheme: IconThemeData(color: foodPandaColors),
             shape: const RoundedRectangleBorder(
                 borderRadius: BorderRadius.vertical(
-              bottom: Radius.circular(10),
-            )),
+                  bottom: Radius.circular(10),
+                )),
             title: const Text(
               'Address Here',
               style: TextStyle(color: Color.fromRGBO(215, 15, 100, 1)),
@@ -72,8 +72,8 @@ class _FoodPandaScreenState extends State<FoodPandaScreen> {
         children: <Widget>[
           CustomCard(
             cardText: const CardTextBoxes(),
-            cardWidth: 1,
-            cardHeight: 2,
+            cardWidth: 150,
+            cardHeight: 150,
             onTap: () {},
           ),
           cardHorizontalSpaces(),
@@ -145,20 +145,12 @@ class _Example01Tile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      color: backgroundColor,
-      child: InkWell(
-        onTap: () {},
-        child: Center(
-          child: Padding(
-            padding: const EdgeInsets.all(4),
-            child: Icon(
-              iconData,
-              color: Colors.white,
-            ),
-          ),
-        ),
-      ),
+    return CustomCard(
+      cardText: const CardTextBoxes(),
+      cardWidth: 150,
+      cardHeight: 150,
+      onTap: () {},
     );
+
   }
 }
