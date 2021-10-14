@@ -1,34 +1,42 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_clones/src/ui/app_clones/app_clones_common_widgets/food_panda_card_texts.dart';
 
-class CustomCard extends StatelessWidget {
-  CustomCard({
+class CustomCard extends StatefulWidget {
+  const CustomCard({
     Key? key,
     required this.cardText,
     required this.cardWidth,
     required this.cardHeight,
     required this.onTap,
+    this.backgroundColor = const Color.fromRGBO(215, 15, 100, .9),
   }) : super(key: key);
-
-  final Color backgroundColor = const Color.fromRGBO(215, 15, 100, .9);
-  final Image backgroundImage = Image.asset('assets/images/characters/boo.png');
+  final Color backgroundColor;
   final CardTextBoxes cardText;
   final double cardWidth;
   final double cardHeight;
   final VoidCallback onTap;
 
   @override
+  State<CustomCard> createState() => _CustomCardState();
+}
+
+class _CustomCardState extends State<CustomCard> {
+  // Color backgroundColor = const Color.fromRGBO(215, 15, 100, .9);
+
+  final Image backgroundImage = Image.asset('assets/images/characters/boo.png');
+
+  @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: cardHeight,
-      width: cardWidth,
+      // height: cardHeight,
+      // width: cardWidth,
       child: Card(
-        color: backgroundColor,
+        color: widget.backgroundColor,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10.0),
         ),
         child: InkWell(
-          onTap: onTap,
+          onTap: widget.onTap,
           child: Padding(
             //padding inside the card
             padding: const EdgeInsets.all(14),
@@ -36,7 +44,7 @@ class CustomCard extends StatelessWidget {
               children: <Widget>[
                 backgroundImage,
                 Container(
-                  child: cardText,
+                  child: widget.cardText,
                 ),
               ],
             ),

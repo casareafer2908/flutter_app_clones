@@ -1,29 +1,35 @@
 import 'package:flutter/material.dart';
 
 class CardTextBoxes extends StatelessWidget {
-  const CardTextBoxes({Key? key}) : super(key: key);
+  const CardTextBoxes({
+    Key? key,
+    required this.cardHeaderText,
+    required this.cardBodyText,
+  }) : super(key: key);
+
+  final String cardHeaderText;
+  final String cardBodyText;
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 120,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.end,
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: const <Widget>[
+        children: <Widget>[
           Text(
-            "Food",
-            style: TextStyle(
+            cardHeaderText,
+            style: const TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.bold,
               letterSpacing: .5,
               color: Colors.white,
             ),
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           Text(
-            "Order",
-            style: TextStyle(
+            cardBodyText,
+            style: const TextStyle(
               letterSpacing: .5,
               color: Colors.white,
             ),
