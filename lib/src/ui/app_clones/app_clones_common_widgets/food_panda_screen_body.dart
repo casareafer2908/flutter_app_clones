@@ -33,9 +33,9 @@ class _BuildFoodPandaBodyState extends State<BuildFoodPandaBody> {
 
 const List<StaggeredTile> _staggeredTiles = <StaggeredTile>[
   //width -- height
-  StaggeredTile.count(4, 1),
-  StaggeredTile.count(1, 1),
-  StaggeredTile.count(1, 1),
+  StaggeredTile.count(4, 2),
+  StaggeredTile.count(2, 3),
+  StaggeredTile.count(2, 2),
   StaggeredTile.count(1, 1),
   StaggeredTile.count(1, 1),
   StaggeredTile.count(1, 1),
@@ -44,27 +44,27 @@ const List<StaggeredTile> _staggeredTiles = <StaggeredTile>[
 ];
 
 const List<Widget> _tiles = <Widget>[
-  _PandaScreenFinder(),
-  _PandaScreenCards(),
-  _PandaScreenCards(),
-  _PandaScreenCards(),
-  _PandaScreenCards(),
-  _PandaScreenCards(),
-  _PandaScreenCards(),
-  _PandaScreenCards(),
+  _FoodDeliveryCard(),
+  _ShopsCard(),
+  _PandaMartCard(),
+  _FoodDeliveryCard(),
+  _FoodDeliveryCard(),
+  _FoodDeliveryCard(),
+  _FoodDeliveryCard(),
+  _FoodDeliveryCard(),
 ];
 
-class _PandaScreenFinder extends StatelessWidget {
-  const _PandaScreenFinder({Key? key}) : super(key: key);
+class _ShopsCard extends StatelessWidget {
+  const _ShopsCard({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return CustomCard(
       cardText: const CardTextBoxes(
-        cardHeaderText: 'Food',
-        cardBodyText: 'Order',
+        cardHeaderText: 'Shops',
+        cardBodyText: 'Groceries and More',
       ),
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.orangeAccent,
       cardWidth: 150,
       cardHeight: 150,
       onTap: () {},
@@ -72,8 +72,26 @@ class _PandaScreenFinder extends StatelessWidget {
   }
 }
 
-class _PandaScreenCards extends StatelessWidget {
-  const _PandaScreenCards({Key? key}) : super(key: key);
+class _PandaMartCard extends StatelessWidget {
+  const _PandaMartCard({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return CustomCard(
+      cardText: const CardTextBoxes(
+        cardHeaderText: 'PandaMart',
+        cardBodyText: 'Essentials Delivered Fast',
+      ),
+      backgroundColor: Colors.purpleAccent,
+      cardWidth: 150,
+      cardHeight: 150,
+      onTap: () {},
+    );
+  }
+}
+
+class _FoodDeliveryCard extends StatelessWidget {
+  const _FoodDeliveryCard({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
