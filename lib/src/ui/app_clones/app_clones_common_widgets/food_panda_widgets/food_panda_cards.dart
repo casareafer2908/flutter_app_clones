@@ -23,7 +23,6 @@ class CustomCard extends StatefulWidget {
 }
 
 class _CustomCardState extends State<CustomCard> {
-
   //final Image backgroundImage = Image.asset('assets/images/characters/boo.png');
 
   @override

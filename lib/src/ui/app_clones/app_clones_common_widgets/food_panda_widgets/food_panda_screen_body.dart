@@ -39,9 +39,7 @@ const List<StaggeredTile> _staggeredTiles = <StaggeredTile>[
   StaggeredTile.count(2, 2),
   StaggeredTile.count(2, 1),
   StaggeredTile.count(4, 1.2),
-  StaggeredTile.count(4, 2),
-  StaggeredTile.count(1, 1),
-  StaggeredTile.count(1, 1),
+  StaggeredTile.count(4, 2.2),
 ];
 
 const List<Widget> _tiles = <Widget>[
@@ -51,8 +49,14 @@ const List<Widget> _tiles = <Widget>[
   _PickUpCard(),
   _BecomeAPro(),
   _YourDailyDeals(),
+];
+
+const List<Widget> _deals = <Widget>[
   _FoodDeliveryCard(),
-  _FoodDeliveryCard(),
+  _ShopsCard(),
+  _PandaMartCard(),
+  _PickUpCard(),
+  _BecomeAPro(),
 ];
 
 class _YourDailyDeals extends StatelessWidget {
@@ -61,22 +65,26 @@ class _YourDailyDeals extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(2),
+      padding: const EdgeInsets.all(8),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          const Text('Your daily deals',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20),),
-          const SizedBox(height: 8,),
+          const Padding(
+            padding: EdgeInsets.all(4),
+            child: Text(
+              'Your daily deals',
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+            ),
+          ),
+          const SizedBox(
+            height: 2,
+          ),
           SizedBox(
-            height: 142,
-            child: StaggeredGridView.count(
-              // her you set how many colums will be in the screen
-              crossAxisCount: 15,
-              staggeredTiles: _staggeredTiles,
-             mainAxisSpacing: 10,
-              crossAxisSpacing: 4,
-              padding: const EdgeInsets.all(14),
-              children: _tiles,
+            height: 140,
+            child: ListView(
+              padding: const EdgeInsets.all(4),
+              scrollDirection: Axis.horizontal,
+              children: _deals,
             ),
           ),
         ],
