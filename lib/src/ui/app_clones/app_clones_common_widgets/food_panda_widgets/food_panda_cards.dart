@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app_clones/src/ui/app_clones/app_clones_common_widgets/food_panda_card_texts.dart';
+import 'package:flutter_app_clones/src/ui/app_clones/app_clones_common_widgets/food_panda_widgets/food_panda_card_texts.dart';
 
 class CustomCard extends StatefulWidget {
   const CustomCard({
@@ -8,6 +8,7 @@ class CustomCard extends StatefulWidget {
     required this.cardWidth,
     required this.cardHeight,
     required this.onTap,
+    required this.backgroundImage,
     this.backgroundColor = const Color.fromRGBO(215, 15, 100, .9),
   }) : super(key: key);
   final Color backgroundColor;
@@ -15,15 +16,15 @@ class CustomCard extends StatefulWidget {
   final double cardWidth;
   final double cardHeight;
   final VoidCallback onTap;
+  final Image backgroundImage;
 
   @override
   State<CustomCard> createState() => _CustomCardState();
 }
 
 class _CustomCardState extends State<CustomCard> {
-  // Color backgroundColor = const Color.fromRGBO(215, 15, 100, .9);
 
-  final Image backgroundImage = Image.asset('assets/images/characters/boo.png');
+  //final Image backgroundImage = Image.asset('assets/images/characters/boo.png');
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +43,7 @@ class _CustomCardState extends State<CustomCard> {
             padding: const EdgeInsets.all(14),
             child: Stack(
               children: <Widget>[
-                backgroundImage,
+                widget.backgroundImage,
                 Container(
                   child: widget.cardText,
                 ),

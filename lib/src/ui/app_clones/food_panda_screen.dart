@@ -1,10 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_app_clones/src/ui/app_clones/app_clones_common_widgets/food_panda_cards.dart';
-import 'package:flutter_app_clones/src/ui/app_clones/app_clones_common_widgets/food_panda_screen_body.dart';
-import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-
-import 'app_clones_common_widgets/food_panda_card_texts.dart';
+import 'package:flutter_app_clones/src/ui/app_clones/app_clones_common_widgets/food_panda_widgets/food_panda_screen_body.dart';
 
 class FoodPandaScreen extends StatefulWidget {
   const FoodPandaScreen({Key? key}) : super(key: key);

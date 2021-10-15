@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app_clones/src/ui/app_clones/app_clones_common_widgets/food_panda_card_texts.dart';
-import 'package:flutter_app_clones/src/ui/app_clones/app_clones_common_widgets/food_panda_cards.dart';
+import 'package:flutter_app_clones/src/ui/app_clones/app_clones_common_widgets/food_panda_widgets/food_panda_card_texts.dart';
+import 'package:flutter_app_clones/src/ui/app_clones/app_clones_common_widgets/food_panda_widgets/food_panda_cards.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
 class BuildFoodPandaBody extends StatefulWidget {
@@ -36,8 +36,8 @@ const List<StaggeredTile> _staggeredTiles = <StaggeredTile>[
   StaggeredTile.count(4, 2),
   StaggeredTile.count(2, 3),
   StaggeredTile.count(2, 2),
-  StaggeredTile.count(1, 1),
-  StaggeredTile.count(1, 1),
+  StaggeredTile.count(2, 1),
+  StaggeredTile.count(4, 1.2),
   StaggeredTile.count(1, 1),
   StaggeredTile.count(1, 1),
   StaggeredTile.count(1, 1),
@@ -47,12 +47,31 @@ const List<Widget> _tiles = <Widget>[
   _FoodDeliveryCard(),
   _ShopsCard(),
   _PandaMartCard(),
-  _FoodDeliveryCard(),
-  _FoodDeliveryCard(),
+  _PickUpCard(),
+  _BecomeAPro(),
   _FoodDeliveryCard(),
   _FoodDeliveryCard(),
   _FoodDeliveryCard(),
 ];
+
+class _BecomeAPro extends StatelessWidget {
+  const _BecomeAPro({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return CustomCard(
+      cardText: const CardTextBoxes(
+        cardHeaderText: 'Become a pro',
+        cardBodyText: 'and get exclusive deals',
+      ),
+      backgroundColor: Colors.white,
+      cardWidth: 150,
+      cardHeight: 150,
+      onTap: () {},
+      backgroundImage: Image.asset('assets/images/characters/frieza.png'),
+    );
+  }
+}
 
 class _ShopsCard extends StatelessWidget {
   const _ShopsCard({Key? key}) : super(key: key);
@@ -68,6 +87,26 @@ class _ShopsCard extends StatelessWidget {
       cardWidth: 150,
       cardHeight: 150,
       onTap: () {},
+      backgroundImage: Image.asset('assets/images/characters/goku.png'),
+    );
+  }
+}
+
+class _PickUpCard extends StatelessWidget {
+  const _PickUpCard({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return CustomCard(
+      cardText: const CardTextBoxes(
+        cardHeaderText: 'Pick-Up',
+        cardBodyText: 'Get up to 21% off',
+      ),
+      backgroundColor: Colors.blueAccent,
+      cardWidth: 150,
+      cardHeight: 150,
+      onTap: () {},
+      backgroundImage: Image.asset('assets/images/characters/vegeta.png'),
     );
   }
 }
@@ -86,6 +125,7 @@ class _PandaMartCard extends StatelessWidget {
       cardWidth: 150,
       cardHeight: 150,
       onTap: () {},
+      backgroundImage: Image.asset('assets/images/characters/broly.png'),
     );
   }
 }
@@ -99,10 +139,12 @@ class _FoodDeliveryCard extends StatelessWidget {
       cardText: const CardTextBoxes(
         cardHeaderText: 'Food',
         cardBodyText: 'Order',
+        textColor: Colors.white,
       ),
       cardWidth: 150,
       cardHeight: 150,
       onTap: () {},
+      backgroundImage: Image.asset('assets/images/characters/boo.png'),
     );
   }
 }

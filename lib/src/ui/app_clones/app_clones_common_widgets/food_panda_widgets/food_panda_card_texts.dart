@@ -5,9 +5,11 @@ class CardTextBoxes extends StatelessWidget {
     Key? key,
     required this.cardHeaderText,
     required this.cardBodyText,
+    this.textColor = Colors.black,
   }) : super(key: key);
 
   final String cardHeaderText;
+  final Color textColor;
   final String cardBodyText;
 
   @override
@@ -19,19 +21,19 @@ class CardTextBoxes extends StatelessWidget {
         children: <Widget>[
           Text(
             cardHeaderText,
-            style: const TextStyle(
+            style: TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.bold,
               letterSpacing: .5,
-              color: Colors.white,
+              color: textColor,
             ),
           ),
           const SizedBox(height: 10),
           Text(
             cardBodyText,
-            style: const TextStyle(
+            style: TextStyle(
               letterSpacing: .5,
-              color: Colors.white,
+              color: textColor,
             ),
           ),
         ],
