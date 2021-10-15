@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app_clones/src/ui/app_clones/app_clones_common_widgets/food_panda_widgets/food_panda_card_texts.dart';
 import 'package:flutter_app_clones/src/ui/app_clones/app_clones_common_widgets/food_panda_widgets/food_panda_cards.dart';
@@ -38,7 +39,7 @@ const List<StaggeredTile> _staggeredTiles = <StaggeredTile>[
   StaggeredTile.count(2, 2),
   StaggeredTile.count(2, 1),
   StaggeredTile.count(4, 1.2),
-  StaggeredTile.count(1, 1),
+  StaggeredTile.count(4, 2),
   StaggeredTile.count(1, 1),
   StaggeredTile.count(1, 1),
 ];
@@ -49,10 +50,40 @@ const List<Widget> _tiles = <Widget>[
   _PandaMartCard(),
   _PickUpCard(),
   _BecomeAPro(),
-  _FoodDeliveryCard(),
+  _YourDailyDeals(),
   _FoodDeliveryCard(),
   _FoodDeliveryCard(),
 ];
+
+class _YourDailyDeals extends StatelessWidget {
+  const _YourDailyDeals({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(2),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          const Text('Your daily deals',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20),),
+          const SizedBox(height: 8,),
+          SizedBox(
+            height: 142,
+            child: StaggeredGridView.count(
+              // her you set how many colums will be in the screen
+              crossAxisCount: 15,
+              staggeredTiles: _staggeredTiles,
+             mainAxisSpacing: 10,
+              crossAxisSpacing: 4,
+              padding: const EdgeInsets.all(14),
+              children: _tiles,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
 
 class _BecomeAPro extends StatelessWidget {
   const _BecomeAPro({Key? key}) : super(key: key);
