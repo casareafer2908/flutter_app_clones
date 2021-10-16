@@ -14,41 +14,34 @@ class BuildFoodPandaBody extends StatefulWidget {
 class _BuildFoodPandaBodyState extends State<BuildFoodPandaBody> {
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: <Widget>[
-        Expanded(
-          child: StaggeredGridView.count(
-            // her you set how many colums will be in the screen
-            crossAxisCount: 4,
-            staggeredTiles: _staggeredTiles,
-            mainAxisSpacing: 10,
-            crossAxisSpacing: 10,
-            padding: const EdgeInsets.all(14),
-            children: _tiles,
-          ),
-        ),
-      ],
+    return StaggeredGridView.count(
+      primary: true,
+      physics: const BouncingScrollPhysics(),
+      crossAxisCount: 4,
+      staggeredTiles: _staggeredTiles,
+      children: _tiles,
     );
   }
 }
 
 const List<StaggeredTile> _staggeredTiles = <StaggeredTile>[
-  //width -- height
   StaggeredTile.count(4, 2),
   StaggeredTile.count(2, 3),
   StaggeredTile.count(2, 2),
   StaggeredTile.count(2, 1),
-  StaggeredTile.count(4, 1.2),
-  StaggeredTile.count(4, 2.2),
+  StaggeredTile.count(4, 1.4),
+  StaggeredTile.count(4, 2.3),
+  StaggeredTile.count(4, .93),
 ];
 
 const List<Widget> _tiles = <Widget>[
-  _FoodDeliveryCard(),
-  _ShopsCard(),
-  _PandaMartCard(),
-  _PickUpCard(),
-  _BecomeAPro(),
+  Padding(padding: EdgeInsets.fromLTRB(6, 3, 6, 3), child: _FoodDeliveryCard()),
+  Padding(padding: EdgeInsets.fromLTRB(6, 3, 6, 3), child: _ShopsCard()),
+  Padding(padding: EdgeInsets.fromLTRB(6, 3, 6, 3), child: _PandaMartCard()),
+  Padding(padding: EdgeInsets.fromLTRB(6, 3, 6, 3), child: _PickUpCard()),
+  Padding(padding: EdgeInsets.fromLTRB(6, 3, 6, 20), child: _BecomeAPro()),
   _YourDailyDeals(),
+  Padding(padding: EdgeInsets.fromLTRB(6, 0, 6, 3), child: _ReferAFriendCard()),
 ];
 
 const List<Widget> _deals = <Widget>[
@@ -59,36 +52,37 @@ const List<Widget> _deals = <Widget>[
   _BecomeAPro(),
 ];
 
+
+
 class _YourDailyDeals extends StatelessWidget {
   const _YourDailyDeals({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(8),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          const Padding(
-            padding: EdgeInsets.all(4),
-            child: Text(
-              'Your daily deals',
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-            ),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisSize: MainAxisSize.min,
+      children: <Widget>[
+        const Padding(
+          padding: EdgeInsets.only(left: 4),
+          child: Text(
+            'Your daily deals',
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
           ),
-          const SizedBox(
-            height: 2,
+        ),
+        const SizedBox(
+          height: 2,
+        ),
+        SizedBox(
+          height: 190,
+          child: ListView(
+            physics: const BouncingScrollPhysics(),
+            padding: const EdgeInsets.all(4),
+            scrollDirection: Axis.horizontal,
+            children: _deals,
           ),
-          SizedBox(
-            height: 140,
-            child: ListView(
-              padding: const EdgeInsets.all(4),
-              scrollDirection: Axis.horizontal,
-              children: _deals,
-            ),
-          ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
@@ -108,6 +102,25 @@ class _BecomeAPro extends StatelessWidget {
       cardHeight: 150,
       onTap: () {},
       backgroundImage: Image.asset('assets/images/characters/frieza.png'),
+    );
+  }
+}
+
+class _ReferAFriendCard extends StatelessWidget {
+  const _ReferAFriendCard({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return CustomCard(
+      cardText: const CardTextBoxes(
+        cardHeaderText: 'Refer a Friend',
+        cardBodyText: 'and both get a discount',
+      ),
+      backgroundColor: Colors.orangeAccent,
+      cardWidth: 150,
+      cardHeight: 150,
+      onTap: () {},
+      backgroundImage: Image.asset('assets/images/characters/goku.png'),
     );
   }
 }

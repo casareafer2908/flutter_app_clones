@@ -23,31 +23,25 @@ class CustomCard extends StatefulWidget {
 }
 
 class _CustomCardState extends State<CustomCard> {
-  //final Image backgroundImage = Image.asset('assets/images/characters/boo.png');
-
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      // height: cardHeight,
-      // width: cardWidth,
-      child: Card(
-        color: widget.backgroundColor,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10.0),
-        ),
-        child: InkWell(
-          onTap: widget.onTap,
-          child: Padding(
-            //padding inside the card
-            padding: const EdgeInsets.all(14),
-            child: Stack(
-              children: <Widget>[
-                widget.backgroundImage,
-                Container(
-                  child: widget.cardText,
-                ),
-              ],
-            ),
+    return Card(
+      color: widget.backgroundColor,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10.0),
+      ),
+      child: InkWell(
+        onTap: widget.onTap,
+        child: Padding(
+          //padding inside the card
+          padding: const EdgeInsets.all(14),
+          child: Stack(
+            children: <Widget>[
+              widget.backgroundImage,
+              Container(
+                child: widget.cardText,
+              ),
+            ],
           ),
         ),
       ),
