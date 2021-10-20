@@ -25,7 +25,8 @@ class _BuildFoodPandaBodyState extends State<BuildFoodPandaBody> {
 }
 
 const List<StaggeredTile> _staggeredTiles = <StaggeredTile>[
-  StaggeredTile.count(4, 2),
+  StaggeredTile.count(4, 1),
+  StaggeredTile.count(4, 1),
   StaggeredTile.count(2, 3),
   StaggeredTile.count(2, 2),
   StaggeredTile.count(2, 1),
@@ -35,6 +36,8 @@ const List<StaggeredTile> _staggeredTiles = <StaggeredTile>[
 ];
 
 const List<Widget> _tiles = <Widget>[
+  Padding(
+      padding: EdgeInsets.fromLTRB(6, 3, 6, 3), child: _SearchRestaurants()),
   Padding(padding: EdgeInsets.fromLTRB(6, 3, 6, 3), child: _FoodDeliveryCard()),
   Padding(padding: EdgeInsets.fromLTRB(6, 3, 6, 3), child: _ShopsCard()),
   Padding(padding: EdgeInsets.fromLTRB(6, 3, 6, 3), child: _PandaMartCard()),
@@ -51,8 +54,6 @@ const List<Widget> _deals = <Widget>[
   _PickUpCard(),
   _BecomeAPro(),
 ];
-
-
 
 class _YourDailyDeals extends StatelessWidget {
   const _YourDailyDeals({Key? key}) : super(key: key);
@@ -83,6 +84,39 @@ class _YourDailyDeals extends StatelessWidget {
           ),
         ),
       ],
+    );
+  }
+}
+
+class _SearchRestaurants extends StatelessWidget {
+  const _SearchRestaurants({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(15.0),
+      ),
+      child: const TextField(
+        decoration: InputDecoration(
+          icon: Icon(Icons.search),
+          labelText: "Describe Your Issue...",
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.all(
+              Radius.circular(20.0),
+            ),
+            borderSide: BorderSide(
+              color: Colors.grey,
+            ),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.all(
+              Radius.circular(10.0),
+            ),
+            borderSide: BorderSide(color: Colors.blue),
+          ),
+        ),
+      ),
     );
   }
 }
