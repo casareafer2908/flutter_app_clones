@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/painting.dart';
 import 'package:flutter_app_clones/src/ui/app_clones/app_clones_common_widgets/food_panda_widgets/food_panda_card_texts.dart';
 import 'package:flutter_app_clones/src/ui/app_clones/app_clones_common_widgets/food_panda_widgets/food_panda_cards.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
@@ -25,8 +26,8 @@ class _BuildFoodPandaBodyState extends State<BuildFoodPandaBody> {
 }
 
 const List<StaggeredTile> _staggeredTiles = <StaggeredTile>[
-  StaggeredTile.count(4, 1),
-  StaggeredTile.count(4, 1),
+  StaggeredTile.count(4, .7),
+  StaggeredTile.count(4, 1.5),
   StaggeredTile.count(2, 3),
   StaggeredTile.count(2, 2),
   StaggeredTile.count(2, 1),
@@ -97,25 +98,33 @@ class _SearchRestaurants extends StatelessWidget {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(15.0),
       ),
-      child: const TextField(
-        decoration: InputDecoration(
-          icon: Icon(Icons.search),
-          labelText: "Describe Your Issue...",
-          enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.all(
-              Radius.circular(20.0),
-            ),
-            borderSide: BorderSide(
-              color: Colors.grey,
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        //mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.only(left: 15),
+              child: TextField(
+                readOnly: true,
+                showCursor: true,
+                decoration: InputDecoration(
+                  border: InputBorder.none,
+                  hintStyle: TextStyle(
+                    color: Colors.grey.shade600,
+                    fontWeight: FontWeight.w400,
+                  ),
+                  hintText: 'Search for shops & restaurants',
+                  icon: const Icon(
+                    Icons.search,
+                    color: Color.fromRGBO(215, 15, 100, 1),
+                  ),
+                  // labelText: "Describe Your Issue...",
+                ),
+              ),
             ),
           ),
-          focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.all(
-              Radius.circular(10.0),
-            ),
-            borderSide: BorderSide(color: Colors.blue),
-          ),
-        ),
+        ],
       ),
     );
   }
@@ -150,7 +159,6 @@ class _ReferAFriendCard extends StatelessWidget {
         cardHeaderText: 'Refer a Friend',
         cardBodyText: 'and both get a discount',
       ),
-      backgroundColor: Colors.orangeAccent,
       cardWidth: 150,
       cardHeight: 150,
       onTap: () {},
@@ -169,7 +177,7 @@ class _ShopsCard extends StatelessWidget {
         cardHeaderText: 'Shops',
         cardBodyText: 'Groceries and More',
       ),
-      backgroundColor: Colors.orangeAccent,
+      backgroundColor: const Color.fromRGBO(241, 201, 116, 1),
       cardWidth: 150,
       cardHeight: 150,
       onTap: () {},
@@ -188,7 +196,7 @@ class _PickUpCard extends StatelessWidget {
         cardHeaderText: 'Pick-Up',
         cardBodyText: 'Get up to 21% off',
       ),
-      backgroundColor: Colors.blueAccent,
+      backgroundColor: const Color.fromRGBO(133, 184, 240, 1),
       cardWidth: 150,
       cardHeight: 150,
       onTap: () {},
@@ -207,7 +215,7 @@ class _PandaMartCard extends StatelessWidget {
         cardHeaderText: 'PandaMart',
         cardBodyText: 'Essentials Delivered Fast',
       ),
-      backgroundColor: Colors.purpleAccent,
+      backgroundColor: const Color.fromRGBO(226, 155, 186, 1),
       cardWidth: 150,
       cardHeight: 150,
       onTap: () {},
@@ -223,8 +231,8 @@ class _FoodDeliveryCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomCard(
       cardText: const CardTextBoxes(
-        cardHeaderText: 'Food',
-        cardBodyText: 'Order',
+        cardHeaderText: 'Food delivery',
+        cardBodyText: 'Order food you love',
         textColor: Colors.white,
       ),
       cardWidth: 150,
