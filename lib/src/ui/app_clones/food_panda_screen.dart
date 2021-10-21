@@ -26,9 +26,21 @@ class _FoodPandaScreenState extends State<FoodPandaScreen> {
             bottom: Radius.circular(10),
           ),
         ),
-        title: Text(
-          'Address Here',
-          style: TextStyle(color: pandaColor),
+        title: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.max,
+          children: [
+            Text('26 Lane 103, Xin\'nan Street',
+                style: TextStyle(
+                    color: pandaColor,
+                    fontSize: 16,
+                    fontWeight: FontWeight.w600)),
+            const Text('Taipei City, 110',
+                style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 13,
+                    fontWeight: FontWeight.w400)),
+          ],
         ),
         actions: <Widget>[
           IconButton(
