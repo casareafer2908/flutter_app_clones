@@ -29,12 +29,15 @@ class FoodPandaDrawer extends StatelessWidget {
                     onPressed: () {},
                     child: const Align(
                       alignment: Alignment.centerLeft,
-                      child: Text(
-                        'Log in / Create account',
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
+                      child: Padding(
+                        padding: EdgeInsets.only(left: 10),
+                        child: Text(
+                          'Log in / Create account',
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                          ),
                         ),
                       ),
                     ),
@@ -114,7 +117,7 @@ class FoodPandaDrawer extends StatelessWidget {
                 child: const Align(
                   alignment: Alignment.centerLeft,
                   child: Text(
-                    'Log in / Create account',
+                    'Settings',
                     style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
@@ -134,7 +137,7 @@ class FoodPandaDrawer extends StatelessWidget {
                 child: const Align(
                   alignment: Alignment.centerLeft,
                   child: Text(
-                    'Log in / Create account',
+                    'Terms & Conditions / Privacy',
                     style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
