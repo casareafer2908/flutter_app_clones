@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_app_clones/src/ui/app_clones/app_clones_common_widgets/food_panda_widgets/food_panda_drawer.dart';
 import 'package:flutter_app_clones/src/ui/app_clones/app_clones_common_widgets/food_panda_widgets/food_panda_screen_body.dart';
 
 class FoodPandaScreen extends StatefulWidget {
@@ -53,7 +54,7 @@ class _FoodPandaScreenState extends State<FoodPandaScreen> {
           )
         ],
       ),
-      drawer: const Drawer(),
+      drawer: const FoodPandaDrawer(),
       body: BuildFoodPandaBody(context),
     );
   }
