@@ -54,7 +54,7 @@ class _FoodPandaScreenState extends State<FoodPandaScreen> {
           )
         ],
       ),
-      drawer: const FoodPandaDrawer(),
+      drawer:  FoodPandaDrawer(),
       body: BuildFoodPandaBody(context),
     );
   }
